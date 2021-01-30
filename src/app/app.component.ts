@@ -8,17 +8,4 @@ import { faLock, faUser, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 })
 export class AppComponent {
   title = 'edutechfrontend';
-  faLock = faLock;
-  faUser = faUser;
-  faEnvelope = faEnvelope;
-
-  signModeChanged: boolean;
-
-  addSignUpMode() {
-    this.signModeChanged = true;
-  }
-
-  addSignInMode() {
-    this.signModeChanged = false;
-  }
 }
