@@ -13,18 +13,18 @@ export class ProfileComponent {
     map(({ matches }) => {
       if (matches) {
         return [
-          { title: 'Card 1', cols: 1, rows: 1 },
-          { title: 'Card 2', cols: 1, rows: 1 },
-          { title: 'Card 3', cols: 1, rows: 1 },
-          { title: 'Card 4', cols: 1, rows: 1 }
+          { title: 'Card 1', cols: 2, rows: 1 },
+          { title: 'Card 2', cols: 2, rows: 1 },
+          { title: 'Card 3', cols: 2, rows: 1 },
+          { title: 'Card 4', cols: 2, rows: 1 }
         ];
       }
 
       return [
-        { title: 'Card 1', cols: 2, rows: 1 },
-        { title: 'Card 2', cols: 1, rows: 1 },
-        { title: 'Card 3', cols: 1, rows: 2 },
-        { title: 'Card 4', cols: 1, rows: 1 }
+        { title: 'About Me', cols: 2, rows: 1 },
+        { title: 'My Courses', cols: 1, rows: 1 },
+        { title: 'Courses', cols: 1, rows: 2 },
+        { title: 'Mentors', cols: 1, rows: 1 }
       ];
     })
   );

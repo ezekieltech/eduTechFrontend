@@ -8,16 +8,17 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatButtonModule } from '@angular/material/button';
-import { NavComponent } from './nav/nav.component';
+import { NavComponent } from './user-dashboard/nav/nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
-import { ProfileComponent } from './profile/profile.component';
+import { ProfileComponent } from './user-dashboard/profile/profile.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
+import { UserDashboardRoutingModule } from './user-dashboard/user-dashboard-routing.module';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { MatMenuModule } from '@angular/material/menu';
   ],
   imports: [
     BrowserModule,
+    UserDashboardRoutingModule,
     AppRoutingModule,
     FontAwesomeModule,
     BrowserAnimationsModule,
