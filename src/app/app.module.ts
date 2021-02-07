@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { WelcomeComponent } from './home/welcome.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 import { MatButtonModule } from '@angular/material/button';
 import { NavComponent } from './user-dashboard/nav/nav.component';
@@ -28,7 +30,9 @@ import { UserDashboardRoutingModule } from './user-dashboard/user-dashboard-rout
     ProfileComponent,
   ],
   imports: [
+    FormsModule,
     BrowserModule,
+    HttpClientModule,
     UserDashboardRoutingModule,
     AppRoutingModule,
     FontAwesomeModule,
@@ -42,8 +46,9 @@ import { UserDashboardRoutingModule } from './user-dashboard/user-dashboard-rout
     MatGridListModule,
     MatCardModule,
     MatMenuModule,
+
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

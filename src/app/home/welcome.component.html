@@ -1,67 +1,168 @@
 <div class="contain" [ngClass]="{'sign-up-mode': signModeChanged }">
   <div class="forms-container">
     <div class="signin-signup">
-      <form action="#" class="sign-in-form">
-        <h2 class="title">Sign in</h2>
-        <div class="input-field">
-          <fa-icon class="fas fa-user" [icon]="faUser"></fa-icon>
-          <input type="text" placeholder="Username" />
-        </div>
-        <div class="input-field">
-          <fa-icon class="fas fa-lock" [icon]="faLock"></fa-icon>
-          <input type="password" placeholder="Password" />
-        </div>
-        <input type="submit" value="Login" class="btn solid" />
-        <!-- <p class="social-text">Or Sign in with social platforms</p>
-        <div class="social-media">
-          <a href="#" class="social-icon">
-            <i class="fab fa-facebook-f"></i>
-          </a>
-          <a href="#" class="social-icon">
-            <i class="fab fa-twitter"></i>
-          </a>
-          <a href="#" class="social-icon">
-            <i class="fab fa-google"></i>
-          </a>
-          <a href="#" class="social-icon">
-            <i class="fab fa-linkedin-in"></i>
-          </a>
-        </div> -->
+      <form
+        class="sign-in-form"
+        (ngSubmit)="login(loginForm)"
+        #loginForm="ngForm"
+        autocomplete="off"
+        novalidate
+        >
+        <fieldset>
+          <h2 class="title">Sign in</h2>
+
+          <div class="input-field form-group">
+            <fa-icon class="fas fa-user" [icon]="faUser"></fa-icon>
+            <input
+            class="form-control"
+            type="email"
+            for="emailId"
+            placeholder="Email (required)"
+            required
+            ngModel
+            name="email"
+            #userEmailVar="ngModel"
+            [ngClass]="{'is-invalid': (userEmailVar.touched || userEmailVar.dirty) && !userEmailVar.valid }"
+              />
+              <span class="invalid-feedback">
+              <span *ngIf="userEmailVar.errors?.required">
+                Email is required.
+              </span>
+            </span>
+          </div>
+
+          <div class="input-field form-control">
+            <fa-icon class="fas fa-lock" [icon]="faLock"></fa-icon>
+            <input
+              id="passwordId"
+              type="password"
+              placeholder="Password (required)"
+              required
+              ngModel
+              name="password"
+              #passwordVar="ngModel"
+              [ngClass]="{'is-invalid': (passwordVar.touched || passwordVar.dirty) && !passwordVar.valid }" />
+            <span class="invalid-feedback">
+              <span *ngIf="passwordVar.errors?.required">
+                Password is required.
+              </span>
+            </span>
+          </div>
+          <input
+            type="submit"
+            value="Login"
+            class="btn solid"
+            [disabled]="!loginForm.valid"
+            />
+        </fieldset>
       </form>
-      <form action="#" class="sign-up-form">
-        <h2 class="title">Sign up</h2>
-        <div class="input-field">
-          <fa-icon class="fas fa-user" [icon]="faUser"></fa-icon>
-          <input type="text" placeholder="Username" />
+      <form
+        class="sign-up-form"
+        (ngSubmit)="signup(signupForm)"
+        #signupForm="ngForm"
+        autocomplete="off"
+        novalidate
+        >
+        <fieldset>
+          <h2 class="title">Sign up</h2>
+          <div class="input-field">
+            <fa-icon class="fas fa-user" [icon]="faUser"></fa-icon>
+            <input
+              type="text"
+              placeholder="Username"
+              placeholder="Username"
+              required
+              ngModel
+              name="username"
+              #usernameVar="ngModel"
+              [ngClass]="{'is-invalid': (usernameVar.touched || usernameVar.dirty) && !usernameVar.valid }" />
+            <span class="invalid-feedback">
+              <span *ngIf="usernameVar.errors?.required">
+                Username is required.
+              </span>
+            </span>
+          </div>
+          <div class="input-field">
+            <fa-icon class="fas fa-envelope" [icon]="faEnvelope"></fa-icon>
+            <input
+            type="email"
+            placeholder="Email"
+            required
+            ngModel
+            name="email"
+            #emailVar="ngModel"
+            [ngClass]="{'is-invalid': (emailVar.touched || emailVar.dirty) && !emailVar.valid }" />
+          <span class="invalid-feedback">
+            <span *ngIf="emailVar.errors?.required">
+              Email is required.
+            </span>
+          </span>
+          </div>
+          <div class="input-field">
+            <fa-icon class="fas fa-lock" [icon]="faLock"></fa-icon>
+            <input
+            type="text"
+            placeholder="Role"
+            required
+            ngModel
+            name="role"
+            #roleVar="ngModel"
+            [ngClass]="{'is-invalid': (roleVar.touched || roleVar.dirty) && !roleVar.valid }" />
+            <span class="invalid-feedback">
+              <span *ngIf="roleVar.errors?.required">
+                Role is required.
+              </span>
+            </span>
         </div>
-        <div class="input-field">
-          <fa-icon class="fas fa-envelope" [icon]="faEnvelope"></fa-icon>
-          <input type="email" placeholder="Email" />
-        </div>
-        <div class="input-field">
-          <fa-icon class="fas fa-lock" [icon]="faLock"></fa-icon>
-          <input type="password" placeholder="Password" />
-        </div>
-        <div class="input-field">
-          <fa-icon class="fas fa-lock" [icon]="faLock"></fa-icon>
-          <input type="password" placeholder="Confirm Password" />
-        </div>
-        <input type="submit" class="btn" value="Sign up" />
-        <!-- <p class="social-text">Or Sign up with social platforms</p>
-        <div class="social-media">
-          <a href="#" class="social-icon">
-            <i class="fab fa-facebook-f"></i>
-          </a>
-          <a href="#" class="social-icon">
-            <i class="fab fa-twitter"></i>
-          </a>
-          <a href="#" class="social-icon">
-            <i class="fab fa-google"></i>
-          </a>
-          <a href="#" class="social-icon">
-            <i class="fab fa-linkedin-in"></i>
-          </a>
-        </div> -->
+          <div class="input-field">
+              <fa-icon class="fas fa-lock" [icon]="faLock"></fa-icon>
+              <input
+              type="password"
+              placeholder="Password"
+              required
+              ngModel
+              name="password"
+              #passwordVar="ngModel"
+              [ngClass]="{'is-invalid': (passwordVar.touched || passwordVar.dirty) && !passwordVar.valid }" />
+              <span class="invalid-feedback">
+                <span *ngIf="passwordVar.errors?.required">
+                  Password is required.
+                </span>
+              </span>
+          </div>
+          <div class="input-field">
+            <fa-icon class="fas fa-lock" [icon]="faLock"></fa-icon>
+            <input
+            type="password"
+            placeholder="Confirm Password"
+            required
+            ngModel
+            name="password2"
+            #password2Var="ngModel"
+            [ngClass]="{'is-invalid': (password2Var.touched || password2Var.dirty) && !password2Var.valid }" />
+          <span class="invalid-feedback">
+            <span *ngIf="password2Var.errors?.required">
+              Password is required.
+            </span>
+          </span>
+          </div>
+          <input type="submit" class="btn"  [disabled]="!signupForm.valid" value="Sign up" />
+          <!-- <p class="social-text">Or Sign up with social platforms</p>
+          <div class="social-media">
+            <a href="#" class="social-icon">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="social-icon">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="social-icon">
+              <i class="fab fa-google"></i>
+            </a>
+            <a href="#" class="social-icon">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+          </div> -->
+      </fieldset>
       </form>
     </div>
   </div>
