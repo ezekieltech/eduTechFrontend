@@ -53,7 +53,7 @@ export class WelcomeComponent implements OnInit {
         response => {
           console.log(response)
           this.appService.tokens = response.access
-          this.router.navigate(['/welcome/teacher', [queryParams]="{filterBy: 'x', showImage: true}"]);
+          this.router.navigate(['/welcome/teacher']);
         }
       )
       // this.authService.login(userName, password);
