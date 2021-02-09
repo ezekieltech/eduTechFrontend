@@ -4,6 +4,8 @@ import { faLock, faUser, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { NgForm } from '@angular/forms';
 import { AppService } from '../app.service';
 import { Router } from '@angular/router';
+import { GetTokensService } from '../get-tokens.service';
+import { apiEndpoints } from '../api-endpoints'
 
 @Component({
   selector: 'app-welcome',
@@ -25,7 +27,10 @@ export class WelcomeComponent implements OnInit {
 
   constructor(
     private appService: AppService,
-    private router: Router) { }
+    private router: Router,
+    private getToken: GetTokensService,
+
+    ) { }
 
   ngOnInit(): void {
   }
@@ -40,51 +45,30 @@ export class WelcomeComponent implements OnInit {
 
   // url: string = "https://mysterious-castle-94559.herokuapp.com/auth/jwt/create/"
   // signupUrl: string = "https://mysterious-castle-94559.herokuapp.com/users/"
-  signupUrl: string = "http://127.0.0.1:8000/users/"
-  url: string = "http://127.0.0.1:8000/auth/jwt/create/"
+  signupUrl: string = apiEndpoints.signupUrl
+  url: string = apiEndpoints.loginUrl
 
 
   login(loginForm: NgForm){
     if (loginForm && loginForm.valid) {
-      const userName = loginForm.form.value.userName;
-      const password = loginForm.form.value.password;
-      console.log(loginForm.value)
       this.appService.login(this.url,loginForm.value).subscribe(
         response => {
-          console.log(response)
-          this.appService.tokens = response.access
+          this.getToken.data = response
           this.router.navigate(['/welcome/teacher']);
         }
       )
-      // this.authService.login(userName, password);
-
-      // Navigate to the Product List page after log in.
-      // if (this.authService.redirectUrl) {
-      //   this.router.navigateByUrl(this.authService.redirectUrl);
-      // } else {
-      //   this.router.navigate(['/products']);
-      // }
     } else {
-      // this.errorMessage = 'Please enter a user name and password.';
       console.log('Enter Valid Email and Password')
     }
   }
 
   signup(signupForm: NgForm){
     if (signupForm && signupForm.valid) {
-      const username = signupForm.form.value.userName;
-      const email = signupForm.form.value.email;
-      const password = signupForm.form.value.password;
-      const password2 = signupForm.form.value.password2;
-      console.log(signupForm.value)
       this.appService.signup(this.signupUrl,signupForm.value).subscribe(
         response => {
           console.log(response, response.headers)
           this.email = response.email
           this.username = response.username
-          this.appService.tokens = response.tokens
-          // console.log(this.email, this.username, this.tokens)
-          // http://localhost:4200/welcome/teacher
         }
       )
 

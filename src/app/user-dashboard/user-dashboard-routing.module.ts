@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { NavComponent } from './nav/nav.component';
 import { ProfileComponent } from './profile/profile.component';
 import { UserComponent } from './user/user.component';
+import { ProfileResolverService } from './profile-resolver.service'
 
 
 const routes: Routes = [
@@ -18,6 +19,9 @@ const routes: Routes = [
             {
               path: 'teacher',
               component: ProfileComponent,
+              // resolve: {
+              //   ProfileResolverService
+              // }
             },
             {
               path: 'student',
