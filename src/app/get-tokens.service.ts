@@ -15,6 +15,5 @@ export class GetTokensService {
 
   set data(val: any){
     this.tokens = val;
-    console.log('from get token service', this.tokens);
   }
 }
