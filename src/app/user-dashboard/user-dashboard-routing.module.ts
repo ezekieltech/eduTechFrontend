@@ -4,6 +4,8 @@ import { NavComponent } from './nav/nav.component';
 import { ProfileComponent } from './profile/profile.component';
 import { UserComponent } from './user/user.component';
 import { ProfileResolverService } from './profile-resolver.service'
+import { DisplayProfileComponent } from './profile/display-profile/display-profile.component';
+import { UserProfileComponent } from './profile/user-profile.component';
 
 
 const routes: Routes = [
@@ -22,6 +24,11 @@ const routes: Routes = [
               // resolve: {
               //   ProfileResolverService
               // }
+              children: [
+                {path: '', component: UserProfileComponent}
+
+
+              ]
             },
             {
               path: 'student',

@@ -1,0 +1,80 @@
+<!-- <div class="example-action-buttons">
+  <button mat-button (click)="accordion.openAll()">Expand All</button>
+  <button mat-button (click)="accordion.closeAll()">Collapse All</button>
+</div> -->
+<mat-accordion class="example-headers-align" multi>
+  <mat-expansion-panel disabled>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Username
+      </mat-panel-title>
+      <mat-panel-description>
+        {{username}}
+        <mat-icon>verified_user</mat-icon>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <mat-form-field>
+      <mat-label>First name</mat-label>
+      <input type="text" matInput/>
+    </mat-form-field>
+
+  </mat-expansion-panel>
+
+  <mat-expansion-panel disabled>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Email
+      </mat-panel-title>
+      <mat-panel-description>
+        {{email}}
+        <mat-icon>email</mat-icon>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <mat-form-field>
+      <mat-label>First name</mat-label>
+      <input type="email" matInput/>
+    </mat-form-field>
+
+  </mat-expansion-panel>
+
+
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Full Name
+      </mat-panel-title>
+      <mat-panel-description>
+        Type your full name
+        <mat-icon>tag_faces</mat-icon>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <mat-form-field>
+      <mat-label>First Name</mat-label>
+      <input type="text" matInput/>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Last Name</mat-label>
+      <input type="text" matInput/>
+    </mat-form-field>
+  </mat-expansion-panel>
+
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Bio
+      </mat-panel-title>
+      <mat-panel-description>
+        Tell us a little about yourself
+        <mat-icon>work_outline</mat-icon>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <mat-form-field>
+      <mat-label>About yourself</mat-label>
+      <textarea matInput placeholder="Ex. I'm a writer inspiring..."></textarea>
+    </mat-form-field>
+  </mat-expansion-panel>
+</mat-accordion>

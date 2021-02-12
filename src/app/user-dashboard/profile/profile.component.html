@@ -2,22 +2,52 @@
   <h1 class="mat-h1">Dashboard</h1>
   <mat-grid-list cols="2" rowHeight="350px">
     <mat-grid-tile *ngFor="let card of cards" [colspan]="card.cols" [rowspan]="card.rows">
-      <mat-card class="dashboard-card">
+      <mat-card *ngIf="card.title=='userProfile'" class="dashboard-card">
         <mat-card-header>
           <mat-card-title>
-            User Profile <button (click) = getUserProfile(user_id)>Get Profile</button>
-            <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
+            Welcome {{card.username}}
+            <!-- <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
               <mat-icon>more_vert</mat-icon>
-            </button>
-            <mat-menu #menu="matMenu" xPosition="before">
+            </button> -->
+            <!-- <mat-menu #menu="matMenu" xPosition="before">
               <button mat-menu-item>Expand</button>
               <button mat-menu-item>Remove</button>
-            </mat-menu>
+            </mat-menu> -->
           </mat-card-title>
         </mat-card-header>
         <mat-card-content class="dashboard-card-content">
-          <div>Card Content Here</div>
-          <router-outlet></router-outlet>
+          <app-user-profile
+            [username]="username"
+            [email]="profile_email">
+
+          </app-user-profile>
+          <!-- <router-outlet [username]="user_id"></router-outlet> -->
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+
+
+    <mat-grid-tile *ngFor="let card of cards" [colspan]="card.cols" [rowspan]="card.rows">
+      <mat-card *ngIf="card.title=='userProfile'" class="dashboard-card">
+        <mat-card-header>
+          <mat-card-title>
+            Welcome {{card.username}}
+            <!-- <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
+              <mat-icon>more_vert</mat-icon>
+            </button> -->
+            <!-- <mat-menu #menu="matMenu" xPosition="before">
+              <button mat-menu-item>Expand</button>
+              <button mat-menu-item>Remove</button>
+            </mat-menu> -->
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="dashboard-card-content">
+          <app-user-profile
+            [username]="username"
+            [email]="profile_email">
+
+          </app-user-profile>
+          <!-- <router-outlet [username]="user_id"></router-outlet> -->
         </mat-card-content>
       </mat-card>
     </mat-grid-tile>

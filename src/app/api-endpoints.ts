@@ -3,5 +3,7 @@ export const apiEndpoints = {
   loginUrl: "http://127.0.0.1:8000/auth/jwt/create/",
   userMeUrl: "http://127.0.0.1:8000/auth/users/me",
   userProfileUrl: "http://127.0.0.1:8000/auth/users/",
+  userMeUrl: "http://127.0.0.1:8000/auth/users/me/",
+  userDetailUrl: "http://127.0.0.1:8000/users/",
 
 }
