@@ -39,8 +39,8 @@ export class AppService {
     return this.httpClient.get(url, this.httpOptions)
   }
 
-  getCourses(): Observable<any>{
+  getCourses(url: string): Observable<any>{
     this.setTokenAuthorization()
-    return this.httpClient.get("https://mysterious-castle-94559.herokuapp.com/users/")
+    return this.httpClient.get(url, this.httpOptions)
   }
 }

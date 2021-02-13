@@ -40,12 +40,11 @@ import { MatInputModule } from '@angular/material/input';
    MatNativeDateModule,
    MatInputModule,
 
-   BrowserModule,
+  BrowserModule,
    BrowserAnimationsModule,
 
   ],
  declarations: [
-
  ],
  exports: [
   FormsModule,

@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 import { SharedModule } from '../shared/shared.module'
+import { MainPipe } from '../pipes/main-pipe.module'
 
 import { UserDashboardRoutingModule } from './user-dashboard-routing.module';
 
@@ -11,6 +12,7 @@ import { NavComponent } from './nav/nav.component'
 import { ProfileComponent } from './profile/profile.component';
 import { DisplayProfileComponent } from './profile/display-profile/display-profile.component';
 import { UserProfileComponent } from './profile/user-profile.component';
+import { UserCoursesComponent } from './profile/user-courses.component';
 
 
 @NgModule({
@@ -19,12 +21,14 @@ import { UserProfileComponent } from './profile/user-profile.component';
     ProfileComponent,
     UserComponent,
     DisplayProfileComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    UserCoursesComponent
   ],
   imports: [
     CommonModule,
     SharedModule,
-    UserDashboardRoutingModule
+    UserDashboardRoutingModule,
+    MainPipe
   ]
 })
 export class UserDashboardModule { }

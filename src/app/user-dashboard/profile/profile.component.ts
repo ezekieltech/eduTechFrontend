@@ -18,11 +18,15 @@ export class ProfileComponent implements OnInit{
   profile_email: string;
   username: string;
   user_id: string;
+  courses: [];
 
   cards = [];
 
-  setCardGridForHandset = {cols: 2, rows: 1};
-  setCardGridForWeb = {cols: 2, rows: 1};
+  setCard1GridForHandset = {cols: 2, rows: 1};
+  setCard2GridForHandset = {cols: 2, rows: 1};
+
+  setCard1GridForWeb = {cols: 2, rows: 1};
+  setCard2GridForWeb = {cols: 1, rows: 1};
 
   cardsForHandset = [];
 
@@ -67,12 +71,21 @@ export class ProfileComponent implements OnInit{
         userCard['title'] = 'userProfile';
         userCard['username'] = response.username;
         userCard['email'] = response.email;
+        userCard['courses'] =  response.courses
         this.user_id = response.id;
         this.profile_email = response.email;
         this.username = response.username;
         this.getUserId.data = response.id;
-        this.cardsForWeb[this.cardsForWeb.length] = {...userCard, ...this.setCardGridForWeb};
-        this.cardsForHandset[this.cardsForHandset.length] = {...userCard, ...this.setCardGridForHandset};
+        this.cardsForWeb[this.cardsForWeb.length] = {...userCard, ...this.setCard1GridForWeb};
+        this.cardsForHandset[this.cardsForHandset.length] = {...userCard, ...this.setCard1GridForHandset};
+
+        const userCard2 = {};
+        userCard2['title']='userCourses';
+        // this.courses = response.profile_mentor;
+        // console.log(response)
+        // // userCard2['courses'] = response['profile_mentor']['course_creator'];
+        this.cardsForWeb[this.cardsForWeb.length] = {...userCard2, ...this.setCard2GridForWeb};
+        this.cardsForHandset[this.cardsForHandset.length] = {...userCard2, ...this.setCard2GridForHandset};
       },
       error => {
 

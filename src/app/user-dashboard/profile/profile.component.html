@@ -24,14 +24,14 @@
           <!-- <router-outlet [username]="user_id"></router-outlet> -->
         </mat-card-content>
       </mat-card>
-    </mat-grid-tile>
 
 
-    <mat-grid-tile *ngFor="let card of cards" [colspan]="card.cols" [rowspan]="card.rows">
-      <mat-card *ngIf="card.title=='userProfile'" class="dashboard-card">
+
+
+      <mat-card *ngIf="card.title=='userCourses'" class="dashboard-card">
         <mat-card-header>
           <mat-card-title>
-            Welcome {{card.username}}
+            Your Courses
             <!-- <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
               <mat-icon>more_vert</mat-icon>
             </button> -->
@@ -42,11 +42,9 @@
           </mat-card-title>
         </mat-card-header>
         <mat-card-content class="dashboard-card-content">
-          <app-user-profile
-            [username]="username"
-            [email]="profile_email">
+          <app-user-courses [userId] = "user_id">
 
-          </app-user-profile>
+          </app-user-courses>
           <!-- <router-outlet [username]="user_id"></router-outlet> -->
         </mat-card-content>
       </mat-card>
