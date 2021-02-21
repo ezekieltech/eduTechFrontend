@@ -2,6 +2,7 @@
   <h1 class="mat-h1">Dashboard</h1>
   <mat-grid-list cols="2" rowHeight="350px">
     <mat-grid-tile *ngFor="let card of cards" [colspan]="card.cols" [rowspan]="card.rows">
+
       <mat-card *ngIf="card.title=='userProfile'" class="dashboard-card">
         <mat-card-header>
           <mat-card-title>
@@ -25,9 +26,6 @@
         </mat-card-content>
       </mat-card>
 
-
-
-
       <mat-card *ngIf="card.title=='userCourses'" class="dashboard-card">
         <mat-card-header>
           <mat-card-title>
@@ -48,6 +46,20 @@
           <!-- <router-outlet [username]="user_id"></router-outlet> -->
         </mat-card-content>
       </mat-card>
+
+      <mat-card *ngIf="card.title=='userBooks'" class="dashboard-card">
+        <mat-card-header>
+          <mat-card-title>
+            Your Books
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="dashboard-card-content">
+          <app-user-books [userId] = "user_id">
+
+          </app-user-books>
+        </mat-card-content>
+      </mat-card>
+
     </mat-grid-tile>
   </mat-grid-list>
 </div>

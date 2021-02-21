@@ -24,9 +24,11 @@ export class ProfileComponent implements OnInit{
 
   setCard1GridForHandset = {cols: 2, rows: 1};
   setCard2GridForHandset = {cols: 2, rows: 1};
+  setCard3GridForHandset = {cols: 2, rows: 1};
 
   setCard1GridForWeb = {cols: 2, rows: 1};
   setCard2GridForWeb = {cols: 1, rows: 1};
+  setCard3GridForWeb = {cols: 1, rows: 1};
 
   cardsForHandset = [];
 
@@ -68,6 +70,7 @@ export class ProfileComponent implements OnInit{
     this.appService.getUser(this.url).subscribe(
       response => {
         const userCard = {};
+        console.log(response)
         userCard['title'] = 'userProfile';
         userCard['username'] = response.username;
         userCard['email'] = response.email;
@@ -86,6 +89,14 @@ export class ProfileComponent implements OnInit{
         // // userCard2['courses'] = response['profile_mentor']['course_creator'];
         this.cardsForWeb[this.cardsForWeb.length] = {...userCard2, ...this.setCard2GridForWeb};
         this.cardsForHandset[this.cardsForHandset.length] = {...userCard2, ...this.setCard2GridForHandset};
+
+        const userCard3 = {};
+        userCard3['title']='userBooks';
+        // this.courses = response.profile_mentor;
+        // console.log(response)
+        // // userCard2['courses'] = response['profile_mentor']['course_creator'];
+        this.cardsForWeb[this.cardsForWeb.length] = {...userCard3, ...this.setCard3GridForWeb};
+        this.cardsForHandset[this.cardsForHandset.length] = {...userCard3, ...this.setCard3GridForHandset};
       },
       error => {
 

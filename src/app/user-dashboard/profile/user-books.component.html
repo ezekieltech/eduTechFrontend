@@ -1,0 +1,11 @@
+<p>user-books works!</p>
+<mat-nav-list>
+  <mat-list-item *ngFor="let book of books" >
+     <a matLine (click)="showInfo(book)" >{{ book | splitFirst: "," }}</a>
+
+     <button mat-icon-button (click)="showInfo(book)">
+       <!-- <small>See Details</small> -->
+       <mat-icon>info</mat-icon>
+     </button>
+  </mat-list-item>
+</mat-nav-list>
