@@ -13,6 +13,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { DisplayProfileComponent } from './profile/display-profile/display-profile.component';
 import { UserProfileComponent } from './profile/user-profile.component';
 import { UserCoursesComponent } from './profile/user-courses.component';
+import { UserBooksComponent } from './profile/user-books.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { UserCoursesComponent } from './profile/user-courses.component';
     UserComponent,
     DisplayProfileComponent,
     UserProfileComponent,
-    UserCoursesComponent
+    UserCoursesComponent,
+    UserBooksComponent
   ],
   imports: [
     CommonModule,
