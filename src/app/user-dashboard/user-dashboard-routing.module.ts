@@ -6,6 +6,8 @@ import { UserComponent } from './user/user.component';
 import { ProfileResolverService } from './profile-resolver.service'
 import { DisplayProfileComponent } from './profile/display-profile/display-profile.component';
 import { UserProfileComponent } from './profile/user-profile.component';
+import { CoursesComponent } from './courses/courses.component';
+import { CourseDetailComponent } from './courses/course-detail.component';
 
 
 const routes: Routes = [
@@ -21,21 +23,30 @@ const routes: Routes = [
             {
               path: 'teacher',
               component: ProfileComponent,
-              // resolve: {
-              //   ProfileResolverService
-              // }
               children: [
-                {path: '', component: UserProfileComponent}
-
-
+                {path: '', component: UserProfileComponent},
               ]
             },
             {
               path: 'student',
               component: ProfileComponent,
             },
-          ]
+            {
+              path: 'courses',
+              component: CoursesComponent,
+              // children: [
+              //   {
+              //     path: 'courses:id',
+              //     component: CourseDetailComponent,
+              //   }
+              // ]
+            },
+            {
+              path: 'courses/:id',
+              component: CourseDetailComponent,
+            }
 
+          ],
 
       },
     ]
@@ -44,7 +55,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
+  imports: [RouterModule.forChild(routes),],
   exports: [RouterModule]
 })
 export class UserDashboardRoutingModule { }

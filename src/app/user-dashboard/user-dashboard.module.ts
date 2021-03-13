@@ -14,6 +14,8 @@ import { DisplayProfileComponent } from './profile/display-profile/display-profi
 import { UserProfileComponent } from './profile/user-profile.component';
 import { UserCoursesComponent } from './profile/user-courses.component';
 import { UserBooksComponent } from './profile/user-books.component';
+import { CoursesComponent } from './courses/courses.component';
+import { CourseDetailComponent } from './courses/course-detail.component';
 
 
 @NgModule({
@@ -24,7 +26,9 @@ import { UserBooksComponent } from './profile/user-books.component';
     DisplayProfileComponent,
     UserProfileComponent,
     UserCoursesComponent,
-    UserBooksComponent
+    UserBooksComponent,
+    CoursesComponent,
+    CourseDetailComponent
   ],
   imports: [
     CommonModule,

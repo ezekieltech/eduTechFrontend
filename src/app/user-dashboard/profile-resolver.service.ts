@@ -5,12 +5,11 @@ import {
   RouterStateSnapshot,
   ActivatedRouteSnapshot
 } from '@angular/router';
-import { Observable, of, EMPTY } from 'rxjs';
+import { Observable, of} from 'rxjs';
 import { mergeMap, take } from 'rxjs/operators';
 
 
 import { AppService } from '../app.service';
-import { GetTokensService } from '../get-tokens.service';
 
 
 @Injectable({
@@ -23,7 +22,6 @@ export class ProfileResolverService implements Resolve<any>{
   constructor(
     private appService: AppService,
     private router: Router,
-    private getToken: GetTokensService
   ) { }
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot):
