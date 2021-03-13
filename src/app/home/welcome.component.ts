@@ -4,7 +4,7 @@ import { faLock, faUser, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { NgForm } from '@angular/forms';
 import { AppService } from '../app.service';
 import { Router } from '@angular/router';
-import { GetTokensService } from '../get-tokens.service';
+// import { GetTokensService } from '../get-tokens.service';
 import { apiEndpoints } from '../api-endpoints'
 
 @Component({
@@ -28,7 +28,6 @@ export class WelcomeComponent implements OnInit {
   constructor(
     private appService: AppService,
     private router: Router,
-    private getToken: GetTokensService,
 
     ) { }
 
@@ -53,7 +52,7 @@ export class WelcomeComponent implements OnInit {
     if (loginForm && loginForm.valid) {
       this.appService.login(this.url,loginForm.value).subscribe(
         response => {
-          this.getToken.data = response
+          localStorage.setItem('id_token', response.access);
           this.router.navigate(['/welcome/teacher']);
         }
       )

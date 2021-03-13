@@ -1,19 +1,19 @@
-import { Injectable } from '@angular/core';
+// import { Injectable } from '@angular/core';
 
-@Injectable({
-  providedIn: 'root'
-})
-export class GetTokensService {
+// @Injectable({
+//   providedIn: 'root'
+// })
+// export class GetTokensService {
 
-  tokens: any[];
+//   tokens: any[];
 
-  constructor() { }
+//   constructor() { }
 
-   get data(): any{
-    return this.tokens;
-  }
+//    get data(): any{
+//     return this.tokens;
+//   }
 
-  set data(val: any){
-    this.tokens = val;
-  }
-}
+//   set data(val: any){
+//     this.tokens = val;
+//   }
+// }

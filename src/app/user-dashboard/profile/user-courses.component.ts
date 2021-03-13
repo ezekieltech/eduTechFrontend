@@ -34,11 +34,4 @@ export class UserCoursesComponent implements OnInit {
       )
   }
 
-  showInfo(course){
-    console.log(course.split(',')[1]);
-    const id = course.split(',')[1];
-    this.url = apiEndpoints.coursesUrl + id;
-    this.appService.getCourses(this.url).subscribe( response => console.log(response));
-  }
-
 }

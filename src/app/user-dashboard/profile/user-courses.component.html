@@ -1,9 +1,9 @@
 <mat-nav-list>
   <mat-list-item *ngFor="let course of courses" >
-     <a matLine (click)="showInfo(course)" >{{ course | splitFirst: "," }}</a>
+     <a matLine routerLink="/welcome/courses/{{ course | splitFirst: ',':1 }}">{{ course | splitFirst: "," }}</a>
 
-     <button mat-icon-button (click)="showInfo(course)">
-       <!-- <small>See Details</small> -->
+     <button mat-icon-button>
+       <!-- <small>{{ course | splitFirst: ",":1}}See Details</small> -->
        <mat-icon>info</mat-icon>
      </button>
   </mat-list-item>
