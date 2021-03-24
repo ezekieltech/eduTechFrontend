@@ -1,24 +1,22 @@
-<div class="container">
+<div *ngIf="course" class="container">
   <div class="row">
     <div class="col-md-12">
-      <h2>{{course.name}}</h2>
+      <h2 >{{course.name | splitFirst: ',':0}}</h2>
     </div>
-
   </div>
   <div class="row">
     <p>{{course.short_description}}</p>
   </div>
-  <div class="row">
-    <div class="col-md-4">
+  <div class="row" [ngClass]="{' hide-course-lecture-preview':lectureIsSelected}">
+    <div class="col-md-12">
       <ul>
         <li *ngFor="let lecture of course.classcourse_lectures">
-          {{lecture}} <span><button class="btn btn-primary" (click)="showLectureFiles()">Learn Now</button></span>
+          {{lecture | splitFirst: ',':0}} <span><button class="btn btn-primary" (click)="showLectureFiles()">Overview</button></span>
         </li>
       </ul>
     </div>
-    <div class="col-md-8 lecture-files" [ngClass]="{'show-lecture-files':lectureIsSelected}">
-      Lecture files goes here
-    </div>
-
   </div>
+
+  <app-course-lectures *ngIf="lectureIsSelected" class="lecture-files" [ngClass]="{'show-lecture-files':lectureIsSelected}" [lectures]="course.classcourse_lectures"></app-course-lectures>
+
 </div>

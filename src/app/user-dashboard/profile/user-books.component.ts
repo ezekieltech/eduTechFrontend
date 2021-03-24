@@ -17,7 +17,7 @@ export class UserBooksComponent implements OnInit {
   constructor(private appService: AppService) { }
 
   ngOnInit(): void {
-    this.url = apiEndpoints.userDetailUrl + this.userId
+    this.url = apiEndpoints.userDetailUrl + this.userId + '/'
     console.log(this.url)
 
     this.appService.getUser(this.url).subscribe(
@@ -38,7 +38,7 @@ export class UserBooksComponent implements OnInit {
     console.log(book.split(',')[1]);
     console.log(this.courseId);
     const id = book.split(',')[1];
-    this.url = apiEndpoints.booksUrl + id;
+    this.url = apiEndpoints.booksUrl + id + '/';
     this.appService.getCourses(this.url).subscribe( response => console.log(response));
   }
 

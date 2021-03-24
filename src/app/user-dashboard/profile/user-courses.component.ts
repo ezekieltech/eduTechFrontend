@@ -19,7 +19,7 @@ export class UserCoursesComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.url = apiEndpoints.userDetailUrl + this.userId
+    this.url = apiEndpoints.userDetailUrl + this.userId + '/';
     console.log(this.url)
     this.appService.getUser(this.url).subscribe(
       response => {

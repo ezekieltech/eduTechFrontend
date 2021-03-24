@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { apiEndpoints } from 'src/app/api-endpoints';
 import { AppService } from 'src/app/app.service';
 
@@ -19,16 +19,17 @@ export class CourseDetailComponent implements OnInit {
   teacher: [];
   consultant: [];
   course_short_descrition: string;
+  eachLectureId;
 
   constructor(
     private route: ActivatedRoute,
     private appService: AppService,
+    private router: Router,
   ) { }
 
   ngOnInit(): void {
     const id = +this.route.snapshot.paramMap.get('id');
-    console.log('id',id)
-    this.url = apiEndpoints.coursesUrl + id;
+    this.url = apiEndpoints.coursesUrl + id + '/';
     this.appService.getCourses(this.url).subscribe(
       response => {this.course = response;  console.log(this.course)});
 
@@ -36,6 +37,7 @@ export class CourseDetailComponent implements OnInit {
 
   showLectureFiles(){
     this.lectureIsSelected = true;
+    // this.router.navigate(['lectures'], { relativeTo: this.route })
   }
 
 }

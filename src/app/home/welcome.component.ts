@@ -53,7 +53,7 @@ export class WelcomeComponent implements OnInit {
       this.appService.login(this.url,loginForm.value).subscribe(
         response => {
           localStorage.setItem('id_token', response.access);
-          this.router.navigate(['/welcome/teacher']);
+          this.router.navigate(['/profile']);
         }
       )
     } else {

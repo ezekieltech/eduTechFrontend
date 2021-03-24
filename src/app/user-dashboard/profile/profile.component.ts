@@ -105,7 +105,7 @@ export class ProfileComponent implements OnInit{
    }
 
   getUserProfile (id){
-    this.url = apiEndpoints.userDetailUrl + this.user_id
+    this.url = apiEndpoints.userDetailUrl + this.user_id  + '/'
     this.appService.getUser(this.url).subscribe( response => console.log(response))
   }
 
