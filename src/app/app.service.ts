@@ -19,7 +19,7 @@ export class AppService {
 
   constructor(public httpClient: HttpClient) { }
 
-  signup (url:string, formValue: JSON): Observable<any> {
+  signup (url:string, formValue: string): Observable<any> {
     return this.httpClient.post(url, formValue, this.httpOptions)
   }
 
