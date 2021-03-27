@@ -9,8 +9,8 @@
         novalidate
         >
         <fieldset>
-          <h2 class="title">Sign in</h2>
-
+          <h2 *ngIf="!justSignedUp" class="title">Sign in</h2>
+          <h2 *ngIf="justSignedUp" class="title"> Welcome {{newUserUsername}}, let's get started. Sign In!</h2>
           <div class="input-field form-group">
             <fa-icon class="fas fa-user" [icon]="faUser"></fa-icon>
             <input
@@ -69,7 +69,6 @@
             <fa-icon class="fas fa-user" [icon]="faUser"></fa-icon>
             <input
               type="text"
-              placeholder="Username"
               placeholder="Username"
               required
               ngModel

@@ -4,7 +4,6 @@ import { faLock, faUser, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { NgForm } from '@angular/forms';
 import { AppService } from '../app.service';
 import { Router } from '@angular/router';
-// import { GetTokensService } from '../get-tokens.service';
 import { apiEndpoints } from '../api-endpoints'
 
 @Component({
@@ -22,8 +21,10 @@ export class WelcomeComponent implements OnInit {
   email: string;
   username: string;
   tokens: string;
+  newUserUsername: string;
 
   signModeChanged: boolean;
+  justSignedUp: boolean;
 
   constructor(
     private appService: AppService,
@@ -42,14 +43,13 @@ export class WelcomeComponent implements OnInit {
     this.signModeChanged = false;
   }
 
-  // url: string = "https://mysterious-castle-94559.herokuapp.com/auth/jwt/create/"
-  // signupUrl: string = "https://mysterious-castle-94559.herokuapp.com/users/"
   signupUrl: string = apiEndpoints.signupUrl
   url: string = apiEndpoints.loginUrl
 
 
   login(loginForm: NgForm){
     if (loginForm && loginForm.valid) {
+      console.log('loginForm.value');
       this.appService.login(this.url,loginForm.value).subscribe(
         response => {
           localStorage.setItem('id_token', response.access);
@@ -63,25 +63,16 @@ export class WelcomeComponent implements OnInit {
 
   signup(signupForm: NgForm){
     if (signupForm && signupForm.valid) {
+      console.log('from sign up page:', JSON.stringify(signupForm.value))
+
       this.appService.signup(this.signupUrl,signupForm.value).subscribe(
         response => {
-          console.log(response, response.headers)
-          this.email = response.email
-          this.username = response.username
+          this.newUserUsername = response.username;
+          this.justSignedUp = true;
+          this.addSignInMode();
         }
       )
-
-      this.router.navigate(['/welcome']);
-      // this.authService.login(userName, password);
-
-      // Navigate to the Product List page after log in.
-      // if (this.authService.redirectUrl) {
-      //   this.router.navigateByUrl(this.authService.redirectUrl);
-      // } else {
-      //   this.router.navigate(['/products']);
-      // }
     } else {
-      // this.errorMessage = 'Please enter a user name and password.';
       console.log('Enter Valid Email and Password at signup')
     }
   }

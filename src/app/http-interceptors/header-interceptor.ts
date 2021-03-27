@@ -14,7 +14,6 @@ export class HeaderInterceptor implements HttpInterceptor {
           headers: httpRequest.headers.set("Authorization",
               "JWT " + idToken)
       });
-
         return next.handle(cloned);
     }
     else {
