@@ -1,0 +1,24 @@
+<mat-accordion class="example-headers-align">
+  <mat-expansion-panel *ngFor="let lecture of lectures; index as i; last as isLast" [expanded]="step === i" (opened)="setStep(i); getLecture(lecture)" hideToggle>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        {{lecture| splitFirst: ',':0}}
+      </mat-panel-title>
+      <mat-panel-description>
+        {{lecture.short_description}}
+        <mat-icon>account_circle</mat-icon>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <app-lecture-detail *ngIf="lectureFilesId" [lectureId]="lectureFilesId"></app-lecture-detail>
+
+    <mat-action-row>
+      <span *ngIf="i>0"><button mat-button color="warn" (click)="prevStep()">Previous</button></span>
+      <span *ngIf="!isLast"><button mat-button color="primary" (click)="nextStep()">Next</button></span>
+      <span *ngIf="isLast"><button mat-button color="primary" (click)="nextStep()">End</button></span>
+    </mat-action-row>
+  </mat-expansion-panel>
+</mat-accordion>
+
+
+

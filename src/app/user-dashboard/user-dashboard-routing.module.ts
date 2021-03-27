@@ -8,50 +8,49 @@ import { DisplayProfileComponent } from './profile/display-profile/display-profi
 import { UserProfileComponent } from './profile/user-profile.component';
 import { CoursesComponent } from './courses/courses.component';
 import { CourseDetailComponent } from './courses/course-detail.component';
+import { CourseLecturesComponent } from './courses/course-lectures.component';
+import { LectureDetailComponent } from './courses/lecture-detail.component';
+import { UserCoursesComponent } from './profile/user-courses.component';
+import { UserBooksComponent } from './profile/user-books.component';
 
 
 const routes: Routes = [
   {
-    path: 'welcome',
-
+    path: 'profile',
+    component: NavComponent,
     children: [
-      {
-        path: '',
-        component: NavComponent,
-        children: [
-
+        {
+          path: '',
+          component: ProfileComponent,
+          children: [
+            {path: '', component: UserProfileComponent},
+            {path: '', component: UserCoursesComponent},
+            {path: '', component: UserBooksComponent},
+          ]
+        },
+        {
+          path: 'courses',
+          component: CoursesComponent,
+        },
+        {
+          path: 'courses/:id',
+          component: CourseDetailComponent,
+          children: [
             {
-              path: 'teacher',
-              component: ProfileComponent,
-              children: [
-                {path: '', component: UserProfileComponent},
-              ]
-            },
-            {
-              path: 'student',
-              component: ProfileComponent,
-            },
-            {
-              path: 'courses',
-              component: CoursesComponent,
-              // children: [
-              //   {
-              //     path: 'courses:id',
-              //     component: CourseDetailComponent,
-              //   }
-              // ]
-            },
-            {
-              path: 'courses/:id',
-              component: CourseDetailComponent,
-            }
+              path: 'lectures',
+              component: CourseLecturesComponent},
+                {
+                  path: 'lectures/:id',
+                  component: LectureDetailComponent,
+                }
 
-          ],
 
-      },
-    ]
+          ]
+        }
 
-  }
+      ],
+
+  },
 ];
 
 @NgModule({

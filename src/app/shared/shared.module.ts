@@ -19,6 +19,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
 import { MatInputModule } from '@angular/material/input';
+import {MatTabsModule} from '@angular/material/tabs';
 // import { MatMomentDateModule } from "@angular/material-moment-adapter";
 
 @NgModule({
@@ -39,6 +40,7 @@ import { MatInputModule } from '@angular/material/input';
    MatDatepickerModule,
    MatNativeDateModule,
    MatInputModule,
+   MatTabsModule,
 
   BrowserModule,
    BrowserAnimationsModule,
@@ -64,6 +66,7 @@ import { MatInputModule } from '@angular/material/input';
   MatDatepickerModule,
   MatNativeDateModule,
   MatInputModule,
+  MatTabsModule,
   // MatMomentDateModule,
 ]
 })

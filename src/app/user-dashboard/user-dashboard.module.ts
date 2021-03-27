@@ -16,6 +16,8 @@ import { UserCoursesComponent } from './profile/user-courses.component';
 import { UserBooksComponent } from './profile/user-books.component';
 import { CoursesComponent } from './courses/courses.component';
 import { CourseDetailComponent } from './courses/course-detail.component';
+import { CourseLecturesComponent } from './courses/course-lectures.component';
+import { LectureDetailComponent } from './courses/lecture-detail.component';
 
 
 @NgModule({
@@ -28,7 +30,9 @@ import { CourseDetailComponent } from './courses/course-detail.component';
     UserCoursesComponent,
     UserBooksComponent,
     CoursesComponent,
-    CourseDetailComponent
+    CourseDetailComponent,
+    CourseLecturesComponent,
+    LectureDetailComponent
   ],
   imports: [
     CommonModule,
