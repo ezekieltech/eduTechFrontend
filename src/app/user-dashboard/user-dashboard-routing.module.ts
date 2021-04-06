@@ -12,6 +12,8 @@ import { CourseLecturesComponent } from './courses/course-lectures.component';
 import { LectureDetailComponent } from './courses/lecture-detail.component';
 import { UserCoursesComponent } from './profile/user-courses.component';
 import { UserBooksComponent } from './profile/user-books.component';
+import { BooksComponent } from './books/books.component';
+import { BookDetailComponent } from './books/book-detail.component';
 
 
 const routes: Routes = [
@@ -46,6 +48,14 @@ const routes: Routes = [
 
 
           ]
+        },
+        {
+          path: "books",
+          component: BooksComponent,
+        },
+        {
+          path: "books/:id",
+          component: BookDetailComponent,
         }
 
       ],
