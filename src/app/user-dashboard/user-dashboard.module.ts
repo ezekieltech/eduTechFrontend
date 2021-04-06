@@ -18,6 +18,8 @@ import { CoursesComponent } from './courses/courses.component';
 import { CourseDetailComponent } from './courses/course-detail.component';
 import { CourseLecturesComponent } from './courses/course-lectures.component';
 import { LectureDetailComponent } from './courses/lecture-detail.component';
+import { BooksComponent } from './books/books.component';
+import { BookDetailComponent } from './books/book-detail.component';
 
 
 @NgModule({
@@ -32,7 +34,9 @@ import { LectureDetailComponent } from './courses/lecture-detail.component';
     CoursesComponent,
     CourseDetailComponent,
     CourseLecturesComponent,
-    LectureDetailComponent
+    LectureDetailComponent,
+    BooksComponent,
+    BookDetailComponent
   ],
   imports: [
     CommonModule,
